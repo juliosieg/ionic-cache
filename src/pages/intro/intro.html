@@ -1,0 +1,52 @@
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 style='text-align: center'>
+        <h3> Bem-vindo ao nosso app!</h3>
+        <br>
+        <span style='font-size: 12px'>
+          Antes de iniciar, queremos saber quem você é:
+        </span>
+        <br>
+        <div style='margin-top: 15px'>
+          <img style='border-radius: 50%; width: 136px; height: 122px;' *ngIf="!imgBase64" src='https://querotrabalharsite.files.wordpress.com/2017/01/11.jpg?w=1200'/>
+          <img style='border-radius: 50%; width: 136px; height: 122px;' [src]="imgBase64" *ngIf="imgBase64"/>
+        </div>
+        <br>
+        <button ion-button (click)="tirarFoto()" *ngIf="!imgBase64">Tirar foto</button>
+        <button ion-button color='danger' (click)="excluirFoto()" *ngIf="imgBase64">Excluir foto</button>
+        <br>
+        <br>
+        <ion-item style='background: transparent'>
+          <ion-label color="primary" floating>Qual seu nome?</ion-label>
+          <ion-input [(ngModel)]="nome"></ion-input>
+        </ion-item>
+        <ion-item style='background: transparent'>
+          <ion-label color="primary" floating>Qual sua idade?</ion-label>
+          <ion-input type='number' [(ngModel)]="idade"></ion-input>
+        </ion-item>
+        <ion-item style='background: transparent'>
+          <ion-label color="primary" floating>Qual seu e-mail?</ion-label>
+          <ion-input type='email' [(ngModel)]="email"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <br>
+    <ion-row>
+      <ion-col col-11 style='text-align: right; line-height: 24px'>
+        <a (click)="validaPagina()">
+          Próximo 
+        </a>
+      </ion-col>
+      <ion-col col-1 style='text-align: left'>
+        <a (click)="validaPagina()">
+          <ion-icon name="arrow-dropright" style='font-size: 25px'></ion-icon>
+        </a>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+  
+</ion-content>
